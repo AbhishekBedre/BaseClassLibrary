@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BaseClassLibrary/FileContentIndex
+/.vs/BaseClassLibrary/v17/.wsuo
+/BaseClassLibrary/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+/BaseClassLibrary/obj/Debug/net6.0/BaseClassLibrary.assets.cache
+/BaseClassLibrary/obj/Debug/net6.0/BaseClassLibrary.csproj.AssemblyReference.cache
+/BaseClassLibrary/obj/Debug/net6.0/BaseClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+*.json
+/BaseClassLibrary/obj/BaseClassLibrary.csproj.nuget.g.props
+/BaseClassLibrary/obj/BaseClassLibrary.csproj.nuget.g.targets
+/BaseClassLibrary/obj/project.nuget.cache
+/BaseClassLIbrary.Tests/obj/BaseClassLIbrary.Tests.csproj.nuget.g.props
+/BaseClassLIbrary.Tests/obj/BaseClassLIbrary.Tests.csproj.nuget.g.targets
+/BaseClassLIbrary.Tests/obj/project.nuget.cache
+/BaseClassLIbrary.Tests/obj/Debug/net6.0/BaseClassLIbrary.Tests.assets.cache
+/BaseClassLIbrary.Tests/obj/Debug/net6.0/BaseClassLIbrary.Tests.csproj.AssemblyReference.cache
+/BaseClassLIbrary.Tests/obj/Debug/net6.0/BaseClassLIbrary.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/BaseClassLIbrary.Tests/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
