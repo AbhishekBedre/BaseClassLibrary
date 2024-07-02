@@ -17,3 +17,5 @@
 /BaseClassLIbrary.Tests/obj/project.nuget.cache
 /BaseClassLIbrary.Tests/obj/Debug/net6.0/BaseClassLIbrary.Tests.assets.cache
 /BaseClassLIbrary.Tests/obj/Debug/net6.0/BaseClassLIbrary.Tests.csproj.AssemblyReference.cache
+/BaseClassLIbrary.Tests
+/BaseClassLibrary/bin/Debug
