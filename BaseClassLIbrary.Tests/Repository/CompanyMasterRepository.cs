@@ -31,9 +31,8 @@ namespace BaseClassLIbrary.Tests.Repository
                 {
                     Name = "Static",
                     Address = "GOTO Hell",
-                    CreatedUserId = 1,
-                    GSTNo = "DSFDSF564",
-                    CreatedDate = DateTime.Now.Date
+                    CreatedBy = "1",
+                    GSTNo = "DSFDSF564",                    
                 });
 
                 int m = 25;
