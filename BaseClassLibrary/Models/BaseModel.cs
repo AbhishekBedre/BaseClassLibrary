@@ -13,7 +13,7 @@
         /// <summary>
         /// CreatedBy
         /// </summary>
-        public string? CreatedBy { get; set; }
+        public long? CreatedBy { get; set; }
 
         /// <summary>
         /// UpdatedDate
@@ -23,6 +23,6 @@
         /// <summary>
         /// UpdatedBy
         /// </summary>
-        public string? UpdatedBy { get; set; }
+        public long? UpdatedBy { get; set; }
     }
 }

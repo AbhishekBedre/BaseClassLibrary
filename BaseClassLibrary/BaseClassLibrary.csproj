@@ -6,6 +6,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Base Class LIbrary for CRUD</Title>
     <Copyright>Infologs PVT LTD</Copyright>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
