@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddBaseLibraryServices();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-options.UseSqlServer(@"Data Source=DESKTOP-PKUGHDC;Initial Catalog=TestDb;Integrated Security=True"));
+options.UseSqlServer(@"Data Source=DESKTOP-P77TN5G;Initial Catalog=Test;Integrated Security=True"));
 
 builder.Services.AddScoped<ICompanyMasterRepository, CompanyMasterRepository>();
 
