@@ -12,7 +12,7 @@ namespace BaseClassLibrary.Interface
         where TEntity : class
         where TContext: DbContext
     {
-        Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null);
+        Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null, params Expression<Func<TEntity, object>>[] includes = null);
         Task<TEntity> GetByIdAsync(long id);
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);

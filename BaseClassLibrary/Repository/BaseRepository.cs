@@ -18,9 +18,19 @@ namespace BaseClassLibrary.Repository
             _context = context;
         }
 
-        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null)
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null,
+            params Expression<Func<TEntity, object>>[] includes = null)
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
+
+            // Apply includes
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
 
             if (predicate != null)  
             {
@@ -29,6 +39,7 @@ namespace BaseClassLibrary.Repository
 
             return await query.ToListAsync();
         }
+        
         public async Task<TEntity> GetByIdAsync(long id)
         {
             return await _context.Set<TEntity>().FindAsync(id);
