@@ -19,7 +19,7 @@ namespace BaseClassLibrary.Repository
         }
 
         public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null,
-            params Expression<Func<TEntity, object>>[] includes = null)
+            params Expression<Func<TEntity, object>>[] includes)
         {
             IQueryable<TEntity> query = _context.Set<TEntity>();
 
@@ -90,6 +90,43 @@ namespace BaseClassLibrary.Repository
             var query = $"EXEC {storedProcedureName} {string.Join(", ", parameterNames)}";
 
             return await _context.Set<TEntity>().FromSqlRaw(query, paramList.ToArray()).ToListAsync();
+        }
+
+        public async Task<DataSet> ExecuteStoredProcedureDSAsync(string storedProcedureName, params object[] parameters)
+        {
+            // Extract parameter names and values from the input array
+            string[] parameterNames = (from i in Enumerable.Range(0, parameters.Length / 2)
+                                       select (string)parameters[i * 2]).ToArray();
+            object[] parameterValues = (from i in Enumerable.Range(0, parameters.Length / 2)
+                                        select parameters[i * 2 + 1]).ToArray();
+        
+            // Create a DataSet to hold the result
+            DataSet resultDataSet = new DataSet();
+        
+            // Create a new SQL connection using the connection string from your DbContext
+            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
+            {
+                using (var command = new SqlCommand(storedProcedureName, connection))
+                {
+                    // Specify that this command is for a stored procedure
+                    command.CommandType = CommandType.StoredProcedure;
+        
+                    // Add the parameters to the command
+                    for (int i = 0; i < parameterNames.Length; i++)
+                    {
+                        command.Parameters.AddWithValue(parameterNames[i], parameterValues[i]);
+                    }
+        
+                    // Use a SqlDataAdapter to execute the command and fill the DataSet
+                    using (var adapter = new SqlDataAdapter(command))
+                    {
+                        await connection.OpenAsync();
+                        adapter.Fill(resultDataSet);
+                    }
+                }
+            }
+        
+            return resultDataSet;
         }
 
         public async Task<List<TEntity>> QueryAsync(            
